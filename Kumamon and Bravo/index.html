@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>熊本熊與熊讚</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js'></script>
+</head>
+
+<body>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        article {
+            width: 600px;
+            height: 600px;
+            position: fixed;
+            left: calc((100% - 600px)/2);
+            top: calc((100% - 600px)/2);
+            overflow: hidden;
+            /* background-color:rgb(0, 0, 0); */
+        }
+
+        .head {
+            width: 480px;
+            height: 480px;
+            position: absolute;
+            top: calc((100% - 480px)/2);
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+
+        .eyes {
+            border-radius: 100%;
+            background-color: #fff;
+            position: absolute;
+            top: 92px;
+            /* width: 84px;
+            height: 84px; */
+        }
+
+        .eyes-left {
+            /* left: 100px; */
+        }
+
+        .eyes-right {
+            /* right: 100px; */
+        }
+
+        .eyes>span.eyebrow {
+            width: 51px;
+            height: 38px;
+            background-color: #000;
+            border-radius: 100%;
+            display: block;
+            position: absolute;
+            border-top: 10px #fff solid;
+            top: -50px;
+        }
+
+        .eyes-left.eyes>span.eyebrow {
+            left: 9px;
+        }
+
+        .eyes-right.eyes>span.eyebrow {
+            right: 9px;
+        }
+
+        .eyes>span.eyeball {
+            width: 15px;
+            height: 30px;
+            display: block;
+            background-color: #000;
+            border-radius: 100%;
+            position: absolute;
+            top: 50%;
+            left: calc((100% - 15px)/2);
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+        }
+
+        .face {
+            width: 225px;
+            height: 175px;
+            background-color: #fff;
+            position: absolute;
+            border-radius: 100%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            /* top: 180px; */
+        }
+
+        .nose {
+
+            background-color: #000;
+
+            position: absolute;
+
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+            /* width: 65px;
+            height: 47px;
+            border-radius: 100%;
+            top: 9px; */
+        }
+
+        .mouth {
+            position: absolute;
+            left: 50%;
+            top: 86px;
+            border-radius: 100%;
+            -webkit-transform-origin: 0;
+            transform-origin: 0;
+            -webkit-transform: scale(0.8) translateX(-50%);
+            transform: scale(0.8) translateX(-50%);
+            /* width: 200px;
+            height: 20px;
+            background-color:rgb(0, 0, 0); */
+        }
+
+        .flush {
+            width: 105px;
+            height: 105px;
+            background-color: red;
+            border-radius: 100%;
+            position: absolute;
+            top: 162px;
+        }
+
+        .flush-left {
+            left: -20px;
+        }
+
+        .flush-right {
+            right: -20px;
+        }
+
+        .bravo {
+            /* background-color:rgb(32, 35, 41); */
+        }
+
+        .bravo .eyes {
+            /* width: 60px;
+            height: 60px; */
+        }
+
+        .bravo .eyes.eyes-left {
+            /* left: 140px; */
+        }
+
+        .bravo .eyes.eyes-right {
+            /* right: 140px; */
+        }
+
+        .bravo .eyes>span.eyebrow {
+            /* opacity: 0; */
+        }
+
+        .bravo .eyes>span.eyeball {
+            /* width: 30px;
+            height: 30px;
+            background-color: #fff;
+            border: 10px #000 solid; */
+        }
+
+        .bravo .eyes.eyes-left>span.eyeball {
+            /* left: 10px; */
+        }
+
+        .bravo .eyes.eyes-right>span.eyeball {
+            /* right: 10px */
+        }
+
+        .bravo .face {
+            /* top: 200px; */
+        }
+
+        .bravo .mouth {
+            /* border-bottom: 10px rgb(233, 30, 99) solid;
+            background-color:rgb(0, 0, 0);
+            width: 150px;
+            height: 42px; */
+        }
+
+        .bravo .nose {
+            /* width: 65px;
+            height: 40px;
+            top: 0px;
+            border-radius: 100% 100% 100px 100px; */
+        }
+
+        .bravo .flush {
+            /* opacity: 0; */
+        }
+
+    </style>
+
+    <article>
+        <div class="head">
+            <div class="eyes eyes-left">
+                <span class="eyebrow"></span>
+                <span class="eyeball"></span>
+            </div>
+            <div class="eyes eyes-right">
+                <span class="eyebrow"></span>
+                <span class="eyeball"></span>
+            </div>
+
+            <div class="face">
+                <div class="nose"></div>
+                <div class="mouth"></div>
+            </div>
+
+            <div class="flush flush-left"></div>
+            <div class="flush flush-right"></div>
+
+        </div>
+    </article>
+
+    <script type="text/javascript">
+        (function () {
+
+            const TimeKumamon = '0';
+            const TimeBravo = '1000';
+
+            const $body = document.querySelector('body');
+            const $article = document.querySelector('article');
+            const $eyesLeft = document.querySelector('.eyes.eyes-left');
+            const $eyesRight = document.querySelector('.eyes.eyes-right');
+            const $eyesbrows = document.querySelectorAll('.eyes>.eyebrow');
+            const $eyesballLeft = document.querySelector('.eyes-left>.eyeball');
+            const $eyesballRight = document.querySelector('.eyes-right>.eyeball');
+            const $face = document.querySelector('.face');
+            const $nose = document.querySelector('.nose');
+            const $mouth = document.querySelector('.mouth');
+            const $flush = document.querySelectorAll('.flush');
+
+            const kumamonStyle = {
+                article: 'background-color:rgb(0,0,0);',
+                eyesLeft: 'width:84px;height:84px;left:100px;',
+                eyesRight: 'width:84px;height:84px;right:100px;',
+                eyesbrows: 'opacity:1;',
+                eyesballLeft: 'width:15px;height:38px;background-color: rgb(0, 0, 0);border: 0px rgb(0, 0, 0) solid;left:34.5px;',
+                eyesballRight: 'width:15px;height:38px;background-color: rgb(0, 0, 0);border: 0px rgb(0, 0, 0) solid;right:34.5px;',
+                face: 'top:180px;',
+                nose: 'width:65px;height:47px;top:9px;border-radius:100% 100% 65px 65px;',
+                mouth: 'width:200px;height:20px;background-color:rgb(0, 0, 0);border-bottom: 0px rgb(206, 37, 25) solid;',
+                flush: 'opacity:1;'
+            }
+
+            const bravoStyle = {
+                article: 'background-color:rgb(32, 35, 41);',
+                eyesLeft: 'width:60px;height:60px;left:140px;',
+                eyesRight: 'width:60px;height:60px;right:140px;',
+                eyesbrows: 'opacity:0;',
+                eyesballLeft: 'width:30px;height:30px;background-color:rgb(255, 255, 255);border: 10px rgb(0, 0, 0) solid;left:10px;',
+                eyesballRight: 'width:30px;height:30px;background-color:rgb(255, 255, 255);border: 10px rgb(0, 0, 0) solid;right:10px;',
+                face: 'top:200px;',
+                nose: 'width:65px;height:40px;top:0px;borderradius:100% 100% 100px 100px;',
+                mouth: 'width:150px;height:42px;background-color:rgb(255, 255, 255);border-bottom: 10px rgb(206, 37, 25) solid;',
+                flush: 'opacity:0;'
+            }
+
+            function setBearStyle() {
+                $body.setAttribute(`data-${TimeKumamon}`, 'background-color:rgb(239, 239, 239);');
+                $body.setAttribute(`data-${TimeBravo}`, 'background-color:rgb(137, 193, 71);');
+
+                $article.setAttribute(`data-${TimeKumamon}`, kumamonStyle.article);
+                $article.setAttribute(`data-${TimeBravo}`, bravoStyle.article);
+
+                $eyesLeft.setAttribute(`data-${TimeKumamon}`, kumamonStyle.eyesLeft);
+                $eyesLeft.setAttribute(`data-${TimeBravo}`, bravoStyle.eyesLeft);
+
+                $eyesRight.setAttribute(`data-${TimeKumamon}`, kumamonStyle.eyesRight);
+                $eyesRight.setAttribute(`data-${TimeBravo}`, bravoStyle.eyesRight);
+
+                $eyesbrows.forEach(function (m) {
+                    m.setAttribute(`data-${TimeKumamon}`, kumamonStyle.eyesbrows);
+                    m.setAttribute(`data-${TimeBravo}`, bravoStyle.eyesbrows);
+                });
+
+                $eyesballLeft.setAttribute(`data-${TimeKumamon}`, kumamonStyle.eyesballLeft);
+                $eyesballLeft.setAttribute(`data-${TimeBravo}`, bravoStyle.eyesballLeft);
+
+                $eyesballRight.setAttribute(`data-${TimeKumamon}`, kumamonStyle.eyesballRight);
+                $eyesballRight.setAttribute(`data-${TimeBravo}`, bravoStyle.eyesballRight);
+
+                $face.setAttribute(`data-${TimeKumamon}`, kumamonStyle.face);
+                $face.setAttribute(`data-${TimeBravo}`, bravoStyle.face);
+
+                $nose.setAttribute(`data-${TimeKumamon}`, kumamonStyle.nose);
+                $nose.setAttribute(`data-${TimeBravo}`, bravoStyle.nose);
+
+                $mouth.setAttribute(`data-${TimeKumamon}`, kumamonStyle.mouth);
+                $mouth.setAttribute(`data-${TimeBravo}`, bravoStyle.mouth);
+
+                $flush.forEach(function (m) {
+                    m.setAttribute(`data-${TimeKumamon}`, kumamonStyle.flush);
+                    m.setAttribute(`data-${TimeBravo}`, bravoStyle.flush);
+                });
+            }
+            window.onload = function () {
+                setBearStyle();
+                skrollr.init();
+            }
+
+        })();
+
+    </script>
+
+</body>
+
+</html>

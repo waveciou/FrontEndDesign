@@ -1,0 +1,80 @@
+$planet-size: 10%;
+$sun-color-yellow: #fff000;
+$sun-color-orange: #f80;
+$moon-color: #3e3d3d;
+$moon-color-dark: #1f1e1e;
+$moon-shadow: rgba(255, 255, 255, 0.5);
+
+body{
+    &, html{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+    background-color: #000;
+    overflow: hidden;
+    &>.space{
+        width: 100%;
+        position: relative;
+        top: 100px;
+        #sun{
+            width: $planet-size;
+            height: 0px;
+            padding-bottom: $planet-size;
+            border-radius: 100%;
+            position: absolute;
+            top: 0%;
+            left: (100% - $planet-size)/2;
+            background-color: $sun-color-yellow;
+            box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
+            animation: corona 20s ease infinite;
+        }
+        #moon{
+            width: $planet-size;
+            height: 0px;
+            padding-bottom: $planet-size;
+            border-radius: 100%;
+            position: absolute;
+            top: 0%;
+            left: 0% - $planet-size;
+            background-color: $moon-color;
+            box-shadow: inset -10px 3px 10px $moon-shadow;
+            animation: move 10s linear infinite;
+        }
+    }
+}
+
+@keyframes corona{
+    0%{
+        box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
+    }
+    50%{
+        box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 30px $sun-color-orange, -10px -10px 90px $sun-color-orange;
+    }
+    100%{
+        box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
+    }
+}
+
+@keyframes move{
+    0%{
+        left: 0% - $planet-size;
+        box-shadow: inset -10px 1px 5px $moon-shadow;
+        background-color: $moon-color;
+    }
+    40%{
+        background-color: $moon-color-dark;
+    }
+    50%{
+        box-shadow: inset 0px 1px 5px rgba(255, 255, 255, 1);
+        background-color: #000;
+    }
+    60%{
+        background-color: $moon-color-dark;
+    }
+    100%{
+        left: 100% + $planet-size;
+        box-shadow: inset 10px 1px 5px $moon-shadow;
+        background-color: $moon-color;
+    }
+}

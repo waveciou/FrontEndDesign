@@ -6,119 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>移動的眼睛</title>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <link rel="stylesheet" href="https://waveciou.github.io/resetcss/reset.css" />
+    <link rel="stylesheet" href="style.min.css">
 </head>
-
 <body>
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-            background-color: #fc3;
-        }
-
-        .overlay {
-            width: 100%;
-            height: 100%;
-            position: fixed;
-            left: 0;
-            top: 0;
-        }
-
-        .box {
-            width: 200px;
-            height: 160px;
-            overflow: hidden;
-            position: fixed;
-            top: calc((100% - 160px)/2);
-            left: calc((100% - 200px)/2);
-        }
-
-        .eyeswrap{
-            width: 100px;
-            height: 160px;
-            /* border: 3px #000 solid; */
-            border-radius: 100%;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .eyes-left {
-            float: left;
-        }
-
-        .eyes-right {
-            float: right;
-        }
-
-        .eyes {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            background-color: #fff;
-            -webkit-animation: eyeclose 6s 5s infinite;
-            animation: eyeclose 6s 5s infinite;
-        }
-        
-        .ball {
-            width: 30px;
-            height: 30px;
-            background-color: #000;
-            position: absolute;
-            border-radius: 100%;
-            -webkit-transition: all 0.1s;
-            transition: all 0.1s;
-            left: calc((100% - 30px)/2);
-            bottom: 25%;
-        }
-
-        .ball::after{
-            content: '';
-            width: 10px;
-            height: 10px;
-            display: block;
-            position: absolute;
-            background-color: #90949f;
-            background-color: #fff;
-            border-radius: 100%;
-            right: 3px;
-            top: 2px;
-        }
-
-        @-webkit-keyframes eyeclose {
-            0%,
-            3%,
-            6%,
-            100% {
-                height: 100%;
-            }
-            1.5%,
-            4.5% {
-                height: 5%;
-            }
-        }
-
-        @keyframes eyeclose {
-            0%,
-            3%,
-            6%,
-            100% {
-                height: 100%;
-            }
-            1.5%,
-            4.5% {
-                height: 5%;
-            }
-        }
-
-    </style>
-
     <div class="box">
         <div class="eyeswrap eyes-left">
             <div class="eyes">
@@ -133,40 +24,7 @@
     </div>
     <div class="overlay"></div>
 
-    <script type="text/javascript">
-        (function () {
-            const $overlay = $('.overlay');
-            const overlayWidth = $overlay.innerWidth();
-            const overlayHeight = $overlay.innerHeight();
-            const $ball = $('.ball');
-            let percentX = 0;
-            let percentY = 0;
-            let mouseX, mouseY;
-
-            function setPosition(positionX, positionY) {
-                $ball.css({
-                    '-webkit-transform': `translate(${positionX}%, ${positionY}%)`,
-                    'transform': `translate(${positionX}%, ${positionY}%)`
-                });
-            }
-
-            $overlay.on('mousemove', function (e) {
-                mouseX = e.offsetX;
-                mouseY = e.offsetY;
-
-                percentX = (Math.floor((mouseX / overlayWidth) * 100) - 50) * 2;
-                percentY = (Math.floor((mouseY / overlayHeight) * 100) - 50) * 2;
-
-                console.log(percentX, percentY)
-
-                setPosition(percentX, percentY);
-            });
-        })()
-
-    </script>
-
-
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="script.js"></script>
 </body>
-
 </html>

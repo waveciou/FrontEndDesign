@@ -32,13 +32,18 @@
                     y: canvasHeight / 2
                 },
                 radius: 10,
-                velocity: 100
+                velocity: 100,
+                acceleration: 20
+            }
+
+            // 處理運動
+            function motion(offset){
+                ball.velocity += ball.acceleration;
+                ball.position.x += ball.velocity / 1000 * offset;
             }
 
             // 宣染canvas畫布
-            function motion(offset) {
-                ball.position.x = ball.position.x + ball.velocity / 1000 * offset;
-
+            function draw(){
                 ctx.fillStyle = 'black';
                 ctx.beginPath();
                 ctx.arc(ball.position.x, ball.position.y, ball.radius, 0, Math.PI * 2);
@@ -47,8 +52,9 @@
 
             // 利用rAF執行動畫
             function render(t) {
-                ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+                canvas.width = canvas.width;
                 motion(t - time);
+                draw();
                 time = t;
                 requestAnimationFrame(render);
             }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-han-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FireWork</title>
+</head>
+
+<body>
+    <style>
+        #firework {
+            display: block;
+            border: 1px #000 solid;
+            margin: 50px auto;
+        }
+    </style>
+    <canvas id="firework"></canvas>
+    <script>
+        (function () {
+            let canvas = document.querySelector('#firework');
+            let canvasWidth = 800;
+            let canvasHeight = 600;
+            canvas.setAttribute('width', canvasWidth);
+            canvas.setAttribute('height', canvasHeight);
+            let ctx = canvas.getContext('2d');
+            let time = 0;
+            let ball = {
+                position: {
+                    x: 0,
+                    y: canvasHeight / 2
+                },
+                radius: 10,
+                velocity: 100
+            }
+
+            // 宣染canvas畫布
+            function motion(offset) {
+                ball.position.x = ball.position.x + ball.velocity / 1000 * offset;
+
+                ctx.fillStyle = 'black';
+                ctx.beginPath();
+                ctx.arc(ball.position.x, ball.position.y, ball.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // 利用rAF執行動畫
+            function render(t) {
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+                motion(t - time);
+                time = t;
+                requestAnimationFrame(render);
+            }
+            requestAnimationFrame(render);
+        })()
+
+    </script>
+</body>
+
+</html>

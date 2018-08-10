@@ -29,17 +29,27 @@
             let ball = {
                 position: {
                     x: 0,
-                    y: canvasHeight / 2
+                    y: 0
                 },
                 radius: 10,
-                velocity: 100,
-                acceleration: 20
+                velocity: {
+                    x: 200,
+                    y: 150
+                },
+                acceleration: {
+                    x: 20,
+                    y: 15
+                }
             }
 
             // 處理運動
             function motion(offset){
-                ball.velocity += ball.acceleration;
-                ball.position.x += ball.velocity / 1000 * offset;
+                // X軸
+                ball.velocity.x += ball.acceleration.x;
+                ball.position.x += ball.velocity.x / 1000 * offset;
+                // Y軸
+                ball.velocity.y += ball.acceleration.y;
+                ball.position.y += ball.velocity.y / 1000 * offset;
             }
 
             // 宣染canvas畫布

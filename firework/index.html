@@ -15,6 +15,7 @@
             border: 1px #000 solid;
             margin: 50px auto;
         }
+
     </style>
     <canvas id="firework"></canvas>
     <script>
@@ -25,35 +26,52 @@
             canvas.setAttribute('width', canvasWidth);
             canvas.setAttribute('height', canvasHeight);
             let ctx = canvas.getContext('2d');
-            let time = 0;
+
+            let time = 0; //時間
+            let gravity = 10; //重力
+            let friction = 0.8; //摩擦力
+
             let ball = {
                 position: {
-                    x: 0,
-                    y: 0
+                    x: canvasWidth / 2,
+                    y: canvasHeight / 2
                 },
                 radius: 10,
                 velocity: {
-                    x: 200,
-                    y: 150
+                    x: 0,
+                    y: 0
                 },
                 acceleration: {
-                    x: 20,
-                    y: 15
+                    x: 0,
+                    y: 0
                 }
             }
 
             // 處理運動
-            function motion(offset){
+            function motion(offset) {
                 // X軸
                 ball.velocity.x += ball.acceleration.x;
                 ball.position.x += ball.velocity.x / 1000 * offset;
                 // Y軸
+                ball.acceleration.y += gravity
                 ball.velocity.y += ball.acceleration.y;
                 ball.position.y += ball.velocity.y / 1000 * offset;
+
+                if (ball.position.y > canvasHeight - ball.radius) {
+                    ball.position.y = canvasHeight - ball.radius;
+                    ball.velocity.y = -ball.velocity.y * friction;
+                    ball.velocity.x *= friction;
+                }
+
+                if (ball.position.x > canvasWidth) {
+                    ball.position.x = 0;
+                } else if (ball.position.x < 0) {
+                    ball.position.x = canvasWidth;
+                }
             }
 
             // 宣染canvas畫布
-            function draw(){
+            function draw() {
                 ctx.fillStyle = 'black';
                 ctx.beginPath();
                 ctx.arc(ball.position.x, ball.position.y, ball.radius, 0, Math.PI * 2);
@@ -69,6 +87,18 @@
                 requestAnimationFrame(render);
             }
             requestAnimationFrame(render);
+
+            canvas.addEventListener('click', function () {
+                ball.velocity = {
+                    x: 0,
+                    y: 0
+                }
+                ball.acceleration = {
+                    x: 5,
+                    y: -150
+                }
+            });
+
         })()
 
     </script>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Snow Fall</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color: #9dc0ca;
+            padding: 0;
+        }
+
+        .snowbanner {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .snowbanner .snow {
+            background-image: url('snow.png');
+            background-repeat: repeat;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .snowbanner .snow-1 {
+            -webkit-animation: animateone 10s infinite linear;
+            -moz-animation: animateone 10s infinite linear;
+            -o-animation: animateone 10s infinite linear;
+            -ms-animation: animateone 10s infinite linear;
+            animation: animateone 10s infinite linear;
+            background-size: 500px 500px;
+        }
+
+        @-webkit-keyframes animateone {
+            0% {
+                background-position: 0px 0px;
+            }
+            100% {
+                background-position: 500px 500px;
+            }
+        }
+
+        @keyframes animateone {
+            0% {
+                background-position: 0px 0px;
+            }
+            100% {
+                background-position: 500px 500px;
+            }
+        }
+
+        .snowbanner .snow-2 {
+            display: none;
+        }
+
+        .snowbanner .snow-3 {
+            -webkit-animation: animatethree 10s infinite linear;
+            -moz-animation: animatethree 10s infinite linear;
+            -o-animation: animatethree 10s infinite linear;
+            -ms-animation: animatethree 10s infinite linear;
+            animation: animatethree 10s infinite linear;
+            background-size: 300px 300px;
+        }
+
+        @-webkit-keyframes animatethree {
+            0% {
+                background-position: 0px 0px;
+            }
+            100% {
+                background-position: 300px 900px;
+            }
+        }
+
+        @keyframes animatethree {
+            0% {
+                background-position: 0px 0px;
+            }
+            100% {
+                background-position: 300px 900px;
+            }
+        }
+
+    </style>
+    <section class="snowbanner">
+        <div class="snow snow-1"></div>
+        <div class="snow snow-2"></div>
+        <div class="snow snow-3"></div>
+    </section>
+</body>
+
+</html>

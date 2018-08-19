@@ -6,100 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Snow Fall</title>
+    <link rel="stylesheet" href="css/style.min.css">
 </head>
 
 <body>
-    <style>
-        body {
-            background-color: #9dc0ca;
-            padding: 0;
-        }
-
-        .snowbanner {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .snowbanner .snow {
-            background-image: url('snow.png');
-            background-repeat: repeat;
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .snowbanner .snow-1 {
-            -webkit-animation: animateone 10s infinite linear;
-            -moz-animation: animateone 10s infinite linear;
-            -o-animation: animateone 10s infinite linear;
-            -ms-animation: animateone 10s infinite linear;
-            animation: animateone 10s infinite linear;
-            background-size: 500px 500px;
-        }
-
-        @-webkit-keyframes animateone {
-            0% {
-                background-position: 0px 0px;
-            }
-            100% {
-                background-position: 500px 500px;
-            }
-        }
-
-        @keyframes animateone {
-            0% {
-                background-position: 0px 0px;
-            }
-            100% {
-                background-position: 500px 500px;
-            }
-        }
-
-        .snowbanner .snow-2 {
-            display: none;
-        }
-
-        .snowbanner .snow-3 {
-            -webkit-animation: animatethree 10s infinite linear;
-            -moz-animation: animatethree 10s infinite linear;
-            -o-animation: animatethree 10s infinite linear;
-            -ms-animation: animatethree 10s infinite linear;
-            animation: animatethree 10s infinite linear;
-            background-size: 300px 300px;
-        }
-
-        @-webkit-keyframes animatethree {
-            0% {
-                background-position: 0px 0px;
-            }
-            100% {
-                background-position: 300px 900px;
-            }
-        }
-
-        @keyframes animatethree {
-            0% {
-                background-position: 0px 0px;
-            }
-            100% {
-                background-position: 300px 900px;
-            }
-        }
-
-    </style>
-    <section class="snowbanner">
+    <section id="snowbanner">
         <div class="snow snow-1"></div>
         <div class="snow snow-2"></div>
-        <div class="snow snow-3"></div>
     </section>
+    <div class="snow-speed-wrapper">
+        <div class="snow-speed-range">
+            <input id="range-slider" type="range">
+        </div>
+    </div>
+    <script>
+        (function () {
+            let speedSlider = document.querySelector('#range-slider');
+            let speedValue = speedSlider.value;
+            let snow = document.querySelectorAll('#snowbanner .snow');
+            let snowSwitch = true;
+
+            speedSlider.addEventListener('input', function () {
+                speedValue = speedSlider.value;
+                setSeconds();
+            });
+
+            function setSeconds() {
+                let seconds = (100 - speedValue) * 0.2;
+                if (seconds < 0.5) {
+                    seconds = 0.5;
+                }
+
+                seconds >= 20 ? snowSwitch = false : snowSwitch = true;
+
+                snow.forEach(element => {
+                    element.style.WebkitAnimationDuration = `${seconds}s`;
+                    element.style.animationDuration = `${seconds}s`;
+
+                    if (snowSwitch) {
+                        element.style.WebkitAnimationIterationCount = 'infinite';
+                        element.style.animationIterationCount = 'infinite';
+                        element.style.opacity = '1';
+                    } else {
+                        element.style.WebkitAnimationIterationCount = '1';
+                        element.style.animationIterationCount = '1';
+                        element.style.opacity = '0';
+                    }
+                });
+            }
+            setSeconds();
+        })()
+
+    </script>
 </body>
 
 </html>

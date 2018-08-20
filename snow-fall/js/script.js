@@ -23,11 +23,9 @@
 
             if (snowSwitch) {
                 element.style.WebkitAnimationIterationCount = 'infinite';
-                element.style.animationIterationCount = 'infinite';
                 element.style.opacity = '1';
             } else {
                 element.style.WebkitAnimationIterationCount = '1';
-                element.style.animationIterationCount = '1';
                 element.style.opacity = '0';
             }
         });

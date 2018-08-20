@@ -25,6 +25,8 @@ body {
   left: 0;
   -webkit-animation-timing-function: linear;
           animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
   -webkit-transition: opacity 3s;
   transition: opacity 3s;
 }

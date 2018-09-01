@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>walking</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background: #000;
+        }
+
+        .right {
+            width: 241px;
+            height: 312px;
+            background-image: url('img/left.png');
+            background-repeat: no-repeat;
+            animation: run_right 0.5s steps(12) infinite;
+            float: left;
+        }
+
+        @keyframes run_right {
+            from {
+                background-position: 0px 0px;
+            }
+
+            to {
+                background-position: -2892px 0px;
+            }
+        }
+
+    </style>
+    <div class="right"></div>
+</body>
+
+</html>

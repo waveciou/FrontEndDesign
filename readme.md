@@ -1,6 +1,6 @@
 # 我的前端設計作品集
 
-網頁前端技術的設計創作作品，利用 CSS3 以及 JavaScript 來製作，主要以 CSS 技術為主。
+網頁前端技術的設計創作作品，利用 CSS3 以及 JavaScript 來製作，主要以 CSS 技術為主。<br>
 作品也有同步在我的 [codepen](https://codepen.io/waveciou/) 。
 
 ## 目錄

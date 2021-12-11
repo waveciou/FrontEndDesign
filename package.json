@@ -15,5 +15,15 @@
   "bugs": {
     "url": "https://github.com/waveciou/FrontEndDesign/issues"
   },
-  "homepage": "https://github.com/waveciou/FrontEndDesign#readme"
+  "homepage": "https://github.com/waveciou/FrontEndDesign#readme",
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "stylelint": "^14.1.0",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-sass-guidelines": "^9.0.1",
+    "stylelint-config-standard": "^24.0.0",
+    "stylelint-order": "^5.0.0",
+    "stylelint-scss": "^4.0.1",
+    "stylelint-selector-bem-pattern": "^2.1.1"
+  }
 }

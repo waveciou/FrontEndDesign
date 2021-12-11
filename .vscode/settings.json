@@ -1,4 +1,7 @@
 {
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
   "liveSassCompile.settings.autoprefix": [
     "> 1%",
     "last 2 versions"

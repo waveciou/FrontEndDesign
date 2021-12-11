@@ -1,59 +1,59 @@
 <!DOCTYPE html>
-<html lang="zh-tw">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Text Hover Effect</title>
-    <link rel="stylesheet" href="https://waveciou.github.io/css-tool/reset.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amaranth">
-    <link rel="stylesheet" href="./css/style.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Text Hover Effect</title>
+  <link rel="stylesheet" href="https://waveciou.github.io/css-tool/reset.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amaranth">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div class="hoverBox">
-        <h1>#WAVECIOU</h1>
-    </div>
-    <script>
-        (function () {
-            const $body = document.querySelector('body');
-            const $hoverBox = document.querySelector('.hoverBox');
-            const $h1 = document.querySelector('h1');
+  <div class="hoverBox">
+    <h1>#WAVECIOU</h1>
+  </div>
+  <script>
+    (function () {
+      const $body = document.querySelector('body');
+      const $hoverBox = document.querySelector('.hoverBox');
+      const $h1 = document.querySelector('h1');
 
-            function active(status){
-                if(status){
-                    if($body.classList.contains('is-active')){
-                        return false;
-                    }else{
-                        $body.classList.add('is-active');
-                    }
-                }else{
-                    if($body.classList.contains('is-active')){
-                        $body.classList.remove('is-active');
-                    }else{
-                        return false;
-                    }
-                }
-            }
+      function active(status) {
+        if (status) {
+          if ($body.classList.contains('is-active')) {
+            return false;
+          } else {
+            $body.classList.add('is-active');
+          }
+        } else {
+          if ($body.classList.contains('is-active')) {
+            $body.classList.remove('is-active');
+          } else {
+            return false;
+          }
+        }
+      }
 
-            $hoverBox.addEventListener('mouseenter', function(){
-                active(true);
-            });
+      $hoverBox.addEventListener('mouseenter', function () {
+        active(true);
+      });
 
-            $hoverBox.addEventListener('mouseleave', function(){
-                active(false);
-            });
+      $hoverBox.addEventListener('mouseleave', function () {
+        active(false);
+      });
 
-            $hoverBox.addEventListener('touchstart', function(){
-                active(true);
-            });
+      $hoverBox.addEventListener('touchstart', function () {
+        active(true);
+      });
 
-            $hoverBox.addEventListener('touchend', function(){
-                active(false);
-            });
-        })()
-    </script>
+      $hoverBox.addEventListener('touchend', function () {
+        active(false);
+      });
+    })()
+  </script>
 </body>
 
 </html>

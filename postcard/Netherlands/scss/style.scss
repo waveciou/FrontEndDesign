@@ -3,231 +3,284 @@ $color-millSpin: #583c32;
 $color-sun: #ffdd38;
 $color-white: #fff;
 $color-black: #2C2F36;
+
 body {
-    &,
-    html {
-        position: relative;
-        width: 100%;
-        height: 100%;
+
+  &,
+  html {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  * {
+    letter-spacing: 2px;
+    font-size: 1.2rem;
+    font-family: 'Amaranth', sans-serif;
+  }
+
+  background-color: $color-black;
+
+  label {
+    display: block;
+    width: 750px;
+    height: 500px;
+    margin: 50px auto;
+
+    .sun,
+    .moon {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      position: absolute;
+      right: 10%;
+      top: 15%;
+      transition: 2s;
     }
-    *{
-        letter-spacing: 2px;
-        font-size: 1.2rem;
-        font-family: 'Amaranth', sans-serif;
+
+    .sun {
+      background-color: $color-sun;
+      box-shadow: 0px 0px 20px rgba(255, 221, 56, 0.5);
+      opacity: 0;
     }
-    background-color: $color-black;
-    label {
+
+    .moon {
+      box-shadow: inset 5px -10px rgba(255, 255, 255, 0.9);
+      opacity: 1;
+    }
+
+    .scene {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background: linear-gradient(#000000, #1A45A0, #91cdff, #4caf50);
+      background-size: 100% 200%;
+      position: relative;
+      transition: 2s;
+      cursor: pointer;
+    }
+
+    #postcard {
+      display: none;
+
+      &:checked+.scene {
+        background-position: 0 100%;
+      }
+
+      &:checked+.scene .moon {
+        opacity: 0;
+      }
+
+      &:checked+.scene .sun {
+        opacity: 1;
+      }
+
+      &:checked+.scene #info {
+
+        h1,
+        ul,
+        li,
+        sup {
+          color: $color-black;
+        }
+      }
+
+      &:checked+.scene #info .ch {
         display: block;
-        width: 750px;
-        height: 500px;
-        margin: 50px auto;
-        .sun,
-        .moon {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            position: absolute;
-            right: 10%;
-            top: 15%;
-            transition: 2s;
-        }
-        .sun {
-            background-color: $color-sun;
-            box-shadow: 0px 0px 20px rgba(255, 221, 56, 0.5);
-            opacity: 0;
-        }
-        .moon {
-            box-shadow: inset 5px -10px rgba(255, 255, 255, 0.9);
-            opacity: 1;
-        }
-        .scene {
-            width: 100%;
-            height: 100%;
-            border-radius: 15px;
-            background: linear-gradient(#000000, #1A45A0, #91cdff, #4caf50);
-            background-size: 100% 200%;
-            position: relative;
-            transition: 2s;
-            cursor: pointer;
-        }
-        #postcard {
-            display: none;
-            &:checked + .scene {
-                background-position: 0 100%;
-            }
-            &:checked + .scene .moon {
-                opacity: 0;
-            }
-            &:checked + .scene .sun {
-                opacity: 1;
-            }
-            &:checked + .scene #info{
-                h1, ul, li, sup{
-                    color: $color-black;
-                }
-            }
-            &:checked + .scene #info .ch{
-                display: block;
-            }
-            &:checked + .scene #info .en{
-                display: none;
-            }
-        }
+      }
+
+      &:checked+.scene #info .en {
+        display: none;
+      }
     }
-    #windmill {
-        position: absolute;
-        right: 155px;
-        bottom: 0px;
-        .millRoof {
-            width: 100px;
-            height: 80px;
-            border-radius: 60px 60px 0px 0px;
-            background-color: $color-millRoof;
-            box-shadow: 30px -10px 0 0 rgba(208, 100, 101, 0.5) inset, -30px -10px 0 0 rgba(238, 130, 121, 0.3) inset;
-        }
-        .millBase {
-            position: relative;
-            width: 100px;
-            border-bottom: 200px solid #f5f8fa;
-            border-right: 32px solid transparent;
-            border-left: 32px solid transparent;
-            z-index: 2;
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                z-index: 1;
-                width: 30px;
-            }
-            &::before {
-                border-bottom: 200px solid #cdd2e4;
-                margin-left: -45px;
-                transform: skew(-9deg);
-            }
-            &::after {
-                border-bottom: 200px solid #fcfeff;
-                margin-left: 51px;
-                transform: skew(9deg);
-            }
-        }
-        .millSpin {
-            width: 400px;
-            height: 400px;
-            position: absolute;
-            top: -130px;
-            left: -150px;
-            z-index: 3;
-            transform-origin: center;
-            animation: spin 7s linear infinite;
-            &::before {
-                content: '';
-                display: block;
-                background-color: #cdd2e4;
-                width: 15px;
-                height: 15px;
-                border-radius: 100%;
-                position: absolute;
-                left: calc((100% - 15px)/2);
-                top: calc((100% - 15px)/2);
-                z-index: 4;
-            }
-            &>span {
-                display: block;
-                background-color: $color-millSpin;
-                position: absolute;
-                width: 5px;
-                height: 50%;
-                transform-origin: bottom;
-                left: calc((100% - 5px)/2);
-                &::before {
-                    content: '';
-                    width: 35px;
-                    height: 3px;
-                    display: block;
-                    background-color: $color-millSpin;
-                    
-                    box-shadow: 0 15px 0 0 $color-millSpin, 0 30px 0 0 $color-millSpin, 0 45px 0 0 $color-millSpin, 0 60px 0 0 $color-millSpin, 0 75px 0 0 $color-millSpin, 0 90px 0 0 $color-millSpin, 0 105px 0 0 $color-millSpin, 0 120px 0 0 $color-millSpin, 0 135px 0 0 $color-millSpin, 0 150px 0 0 $color-millSpin;
-                }
-                &::after {
-                    content: '';
-                    width: 5px;
-                    height: 150px;
-                    display: block;
-                    background-color: $color-millSpin;
-                    box-shadow: 2px 0 0 0 $color-millSpin, 16px 0 0 0 $color-millSpin, 30px 0 0 0 $color-millSpin;
-                }
-                &:nth-child(1) {
-                    transform: rotate(0deg);
-                }
-                &:nth-child(2) {
-                    transform: rotate(90deg);
-                }
-                &:nth-child(3) {
-                    transform: rotate(180deg);
-                }
-                &:nth-child(4) {
-                    transform: rotate(270deg);
-                }
-            }
-            @keyframes spin {
-                100% {
-                    transform: rotate(-360deg);
-                }
-                0% {
-                    transform: rotate(0deg);
-                }
-            }
-        }
+  }
+
+  #windmill {
+    position: absolute;
+    right: 155px;
+    bottom: 0px;
+
+    .millRoof {
+      width: 100px;
+      height: 80px;
+      border-radius: 60px 60px 0px 0px;
+      background-color: $color-millRoof;
+      box-shadow: 30px -10px 0 0 rgba(208, 100, 101, 0.5) inset, -30px -10px 0 0 rgba(238, 130, 121, 0.3) inset;
     }
-    #info{
-        width: 300px;
+
+    .millBase {
+      position: relative;
+      width: 100px;
+      border-bottom: 200px solid #f5f8fa;
+      border-right: 32px solid transparent;
+      border-left: 32px solid transparent;
+      z-index: 2;
+
+      &::before,
+      &::after {
+        content: '';
         position: absolute;
-        top: 30px;
-        left: 30px;
-        
-        .flag{
-            width: 300px;
-            height: 200px;
-            position: relative;
-            background-color: $color-white;
-            box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
-            margin-bottom: 10px;
-            &::before, &::after{
-                content: '';
-                display: block;
-                width: 300px;
-                height: 66.6px;
-                position: absolute;
-            }
-            &::before{
-                top: 0;
-                left: 0;
-                background-color: #b01523;
-            }
-            &::after{
-                bottom: 0;
-                left: 0;
-                background-color: #1b448b;
-            }
+        z-index: 1;
+        width: 30px;
+      }
+
+      &::before {
+        border-bottom: 200px solid #cdd2e4;
+        margin-left: -45px;
+        transform: skew(-9deg);
+      }
+
+      &::after {
+        border-bottom: 200px solid #fcfeff;
+        margin-left: 51px;
+        transform: skew(9deg);
+      }
+    }
+
+    .millSpin {
+      width: 400px;
+      height: 400px;
+      position: absolute;
+      top: -130px;
+      left: -150px;
+      z-index: 3;
+      transform-origin: center;
+      animation: spin 7s linear infinite;
+
+      &::before {
+        content: '';
+        display: block;
+        background-color: #cdd2e4;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        position: absolute;
+        left: calc((100% - 15px)/2);
+        top: calc((100% - 15px)/2);
+        z-index: 4;
+      }
+
+      &>span {
+        display: block;
+        background-color: $color-millSpin;
+        position: absolute;
+        width: 5px;
+        height: 50%;
+        transform-origin: bottom;
+        left: calc((100% - 5px)/2);
+
+        &::before {
+          content: '';
+          width: 35px;
+          height: 3px;
+          display: block;
+          background-color: $color-millSpin;
+
+          box-shadow: 0 15px 0 0 $color-millSpin, 0 30px 0 0 $color-millSpin, 0 45px 0 0 $color-millSpin, 0 60px 0 0 $color-millSpin, 0 75px 0 0 $color-millSpin, 0 90px 0 0 $color-millSpin, 0 105px 0 0 $color-millSpin, 0 120px 0 0 $color-millSpin, 0 135px 0 0 $color-millSpin, 0 150px 0 0 $color-millSpin;
         }
 
-        h1, ul > li, sup{
-            color: $color-white;
+        &::after {
+          content: '';
+          width: 5px;
+          height: 150px;
+          display: block;
+          background-color: $color-millSpin;
+          box-shadow: 2px 0 0 0 $color-millSpin, 16px 0 0 0 $color-millSpin, 30px 0 0 0 $color-millSpin;
         }
-        h1{
-            font-size: 2.76rem;
-            font-weight: bold;
-            padding: 10px 0px;
+
+        &:nth-child(1) {
+          transform: rotate(0deg);
         }
-        ul{
-            line-height: 1.6em;
-            sup{
-                vertical-align: super;
-                font-size: 0.5rem;
-                position: absolute;
-            }
+
+        &:nth-child(2) {
+          transform: rotate(90deg);
         }
-        .en{display: block;}
-        .ch{display: none;}
+
+        &:nth-child(3) {
+          transform: rotate(180deg);
+        }
+
+        &:nth-child(4) {
+          transform: rotate(270deg);
+        }
+      }
+
+      @keyframes spin {
+        100% {
+          transform: rotate(-360deg);
+        }
+
+        0% {
+          transform: rotate(0deg);
+        }
+      }
     }
+  }
+
+  #info {
+    width: 300px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+
+    .flag {
+      width: 300px;
+      height: 200px;
+      position: relative;
+      background-color: $color-white;
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+      margin-bottom: 10px;
+
+      &::before,
+      &::after {
+        content: '';
+        display: block;
+        width: 300px;
+        height: 66.6px;
+        position: absolute;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        background-color: #b01523;
+      }
+
+      &::after {
+        bottom: 0;
+        left: 0;
+        background-color: #1b448b;
+      }
+    }
+
+    h1,
+    ul>li,
+    sup {
+      color: $color-white;
+    }
+
+    h1 {
+      font-size: 2.76rem;
+      font-weight: bold;
+      padding: 10px 0px;
+    }
+
+    ul {
+      line-height: 1.6em;
+
+      sup {
+        vertical-align: super;
+        font-size: 0.5rem;
+        position: absolute;
+      }
+    }
+
+    .en {
+      display: block;
+    }
+
+    .ch {
+      display: none;
+    }
+  }
 }

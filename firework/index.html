@@ -1,182 +1,182 @@
 <!DOCTYPE html>
-<html lang="zh-han-tw">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>FireWork</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>FireWork</title>
 </head>
 
 <body>
-    <style>
-        html,
-        body {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            padding: 0px;
-            margin: 0px;
-            background: linear-gradient(#000000 30%, #182238);
+  <style>
+    html,
+    body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 0px;
+      margin: 0px;
+      background: linear-gradient(#000000 30%, #182238);
+    }
+
+    #firework {
+      display: block;
+      cursor: pointer;
+    }
+
+    .moon {
+      width: 75px;
+      height: 75px;
+      border-radius: 50%;
+      position: absolute;
+      right: 10%;
+      top: 15%;
+      box-shadow: inset 13px -10px rgb(228, 215, 94);
+    }
+
+  </style>
+  <div class="moon"></div>
+  <canvas id="firework"></canvas>
+  <script>
+    (function () {
+      let canvas = document.querySelector('#firework');
+      let canvasWidth = window.innerWidth;
+      let canvasHeight = window.innerHeight;
+      canvas.setAttribute('width', canvasWidth);
+      canvas.setAttribute('height', canvasHeight);
+      let ctx = canvas.getContext('2d');
+      let balls = []; // 存放球的陣列
+      let fireworkBalls = []; // 存放煙火的陣列
+      let mouse = {
+        x: canvasWidth / 2,
+        y: canvasHeight
+      }
+      let time = 0;
+      let gravity = 10;
+      let friction = 0.8;
+
+      // 製造煙火
+      function firework(positionX, positionY) {
+        let colorR = Math.floor(Math.random() * 255) + 230;
+        let colorG = Math.floor(Math.random() * 255) + 230;
+        let colorB = Math.floor(Math.random() * 255) + 100;
+        let fireworkColor = `rgb(${colorR},${colorG},${colorB})`;
+        for (let i = 0; i < 100; i++) {
+          fireworkAngle = Math.random() * Math.PI * 2;
+          fireworkBalls.push({
+            life: 200,
+            position: {
+              x: positionX,
+              y: positionY
+            },
+            velocity: {
+              x: 0,
+              y: 0
+            },
+            acceleration: {
+              x: Math.cos(fireworkAngle) * (Math.random() * 10 + 10),
+              y: Math.sin(fireworkAngle) * (Math.random() * 10 + 10)
+            },
+            radius: 3,
+            color: fireworkColor
+          });
         }
+      }
 
-        #firework {
-            display: block;
-            cursor: pointer;
+      // 處理運動與宣染canvas畫布
+      function motion(offset) {
+        // 處理球
+        balls.forEach((item, index) => {
+          item.position.x += item.velocity * Math.cos(item.angle) / 1000 * offset;
+          item.position.y += item.velocity * Math.sin(item.angle) / 1000 * offset;
+
+          item.life--;
+
+          // 生命結束就呼叫煙火出來
+          if (item.life == 0) {
+            firework(item.position.x, item.position.y);
+            delete balls.splice(index, 1);
+          }
+
+          // 超出邊界
+          if (item.position.x < 0 || item.position.x > canvasWidth || item.position.y < 0 || item
+            .position.y > canvasHeight) {
+            item.active = false;
+          }
+
+          if (item.active) {
+            ctx.fillStyle = '#FFFFFF';
+            ctx.beginPath();
+            ctx.arc(item.position.x, item.position.y, item.radius, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            delete balls.splice(index, 1);
+          }
+        });
+
+        // 處理煙火
+        fireworkBalls.forEach((item, index) => {
+          item.life--;
+          if (item.life) {
+            item.velocity.x += item.acceleration.x;
+            item.position.x += item.velocity.x / 1000 * offset;
+            item.acceleration.y += 1;
+            item.velocity.y += item.acceleration.y
+            item.position.y += item.velocity.y / 1000 * offset;
+            ctx.fillStyle = item.color;
+            ctx.beginPath();
+            ctx.arc(item.position.x, item.position.y, item.radius, 0, Math.PI * 2);
+            ctx.fill();
+          } else {
+            delete balls.splice(index, 1);
+          }
+        });
+      }
+
+      // 利用rAF執行動畫
+      function render(t) {
+        canvas.width = canvas.width;
+        motion(t - time);
+        time = t;
+        requestAnimationFrame(render);
+      }
+      requestAnimationFrame(render);
+
+      canvas.addEventListener('mousemove', function (e) {
+        mouse = {
+          x: e.offsetX,
+          y: e.offsetY,
         }
+      });
 
-        .moon {
-            width: 75px;
-            height: 75px;
-            border-radius: 50%;
-            position: absolute;
-            right: 10%;
-            top: 15%;
-            box-shadow: inset 13px -10px rgb(228, 215, 94);
+      canvas.addEventListener('click', function (e) {
+        mouse = {
+          x: e.offsetX,
+          y: e.offsetY
         }
+        let mx = mouse.x - (canvasWidth / 2);
+        let my = mouse.y - canvasHeight;
 
-    </style>
-    <div class="moon"></div>
-    <canvas id="firework"></canvas>
-    <script>
-        (function () {
-            let canvas = document.querySelector('#firework');
-            let canvasWidth = window.innerWidth;
-            let canvasHeight = window.innerHeight;
-            canvas.setAttribute('width', canvasWidth);
-            canvas.setAttribute('height', canvasHeight);
-            let ctx = canvas.getContext('2d');
-            let balls = []; // 存放球的陣列
-            let fireworkBalls = []; // 存放煙火的陣列
-            let mouse = {
-                x: canvasWidth / 2,
-                y: canvasHeight
-            }
-            let time = 0;
-            let gravity = 10;
-            let friction = 0.8;
+        let ball = {
+          active: true,
+          angle: Math.atan(my / mx),
+          life: 100,
+          position: {
+            x: canvasWidth / 2,
+            y: canvasHeight
+          },
+          velocity: 370,
+          radius: 5
+        }
+        if (mx < 0) {
+          ball.velocity *= -1;
+        }
+        balls.push(ball);
+      });
+    })()
 
-            // 製造煙火
-            function firework(positionX, positionY) {
-                let colorR = Math.floor(Math.random() * 255) + 230;
-                let colorG = Math.floor(Math.random() * 255) + 230;
-                let colorB = Math.floor(Math.random() * 255) + 100;
-                let fireworkColor = `rgb(${colorR},${colorG},${colorB})`;
-                for (let i = 0; i < 100; i++) {
-                    fireworkAngle = Math.random() * Math.PI * 2;
-                    fireworkBalls.push({
-                        life: 200,
-                        position: {
-                            x: positionX,
-                            y: positionY
-                        },
-                        velocity: {
-                            x: 0,
-                            y: 0
-                        },
-                        acceleration: {
-                            x: Math.cos(fireworkAngle) * (Math.random() * 10 + 10),
-                            y: Math.sin(fireworkAngle) * (Math.random() * 10 + 10)
-                        },
-                        radius: 3,
-                        color: fireworkColor
-                    });
-                }
-            }
-
-            // 處理運動與宣染canvas畫布
-            function motion(offset) {
-                // 處理球
-                balls.forEach((item, index) => {
-                    item.position.x += item.velocity * Math.cos(item.angle) / 1000 * offset;
-                    item.position.y += item.velocity * Math.sin(item.angle) / 1000 * offset;
-
-                    item.life--;
-
-                    // 生命結束就呼叫煙火出來
-                    if (item.life == 0) {
-                        firework(item.position.x, item.position.y);
-                        delete balls.splice(index, 1);
-                    }
-
-                    // 超出邊界
-                    if (item.position.x < 0 || item.position.x > canvasWidth || item.position.y < 0 || item
-                        .position.y > canvasHeight) {
-                        item.active = false;
-                    }
-
-                    if (item.active) {
-                        ctx.fillStyle = '#FFFFFF';
-                        ctx.beginPath();
-                        ctx.arc(item.position.x, item.position.y, item.radius, 0, Math.PI * 2);
-                        ctx.fill();
-                    } else {
-                        delete balls.splice(index, 1);
-                    }
-                });
-
-                // 處理煙火
-                fireworkBalls.forEach((item, index) => {
-                    item.life--;
-                    if (item.life) {
-                        item.velocity.x += item.acceleration.x;
-                        item.position.x += item.velocity.x / 1000 * offset;
-                        item.acceleration.y += 1;
-                        item.velocity.y += item.acceleration.y
-                        item.position.y += item.velocity.y / 1000 * offset;
-                        ctx.fillStyle = item.color;
-                        ctx.beginPath();
-                        ctx.arc(item.position.x, item.position.y, item.radius, 0, Math.PI * 2);
-                        ctx.fill();
-                    } else {
-                        delete balls.splice(index, 1);
-                    }
-                });
-            }
-
-            // 利用rAF執行動畫
-            function render(t) {
-                canvas.width = canvas.width;
-                motion(t - time);
-                time = t;
-                requestAnimationFrame(render);
-            }
-            requestAnimationFrame(render);
-
-            canvas.addEventListener('mousemove', function (e) {
-                mouse = {
-                    x: e.offsetX,
-                    y: e.offsetY,
-                }
-            });
-
-            canvas.addEventListener('click', function (e) {
-                mouse = {
-                    x: e.offsetX,
-                    y: e.offsetY
-                }
-                let mx = mouse.x - (canvasWidth / 2);
-                let my = mouse.y - canvasHeight;
-
-                let ball = {
-                    active: true,
-                    angle: Math.atan(my / mx),
-                    life: 100,
-                    position: {
-                        x: canvasWidth / 2,
-                        y: canvasHeight
-                    },
-                    velocity: 370,
-                    radius: 5
-                }
-                if (mx < 0) {
-                    ball.velocity *= -1;
-                }
-                balls.push(ball);
-            });
-        })()
-
-    </script>
+  </script>
 </body>
 
 </html>

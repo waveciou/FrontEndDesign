@@ -1,0 +1,352 @@
+$color-black: #444140;
+$color-white: #FFFFFF;
+$color-blue: #5AC9E8;
+$color-blue-dark: #57AEBF;
+$color-red: #ff5B5B;
+$color-yellow: #f7e27f;
+
+$size: 640px;
+$head--border-radius: 49% 37% 31% 53%;
+
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&display=swap');
+
+body {
+  background-color: $color-yellow;
+}
+
+.capoo {
+  width: $size;
+  height: $size;
+  position: relative;
+}
+
+.head {
+  width: 345px;
+  height: 317px;
+  background-color: $color-blue;
+  position: absolute;
+  top: 216px;
+  left: 185px;
+  border-radius: $head--border-radius;
+  overflow: hidden;
+  z-index: 4000;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+
+  &::before {
+    width: 200px;
+    height: 45px;
+    background-color: $color-white;
+    left: 70px;
+    bottom: 0px;
+    border-radius: 60% 60%;
+    transform: rotate(8deg);
+  }
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    border: 10px $color-black solid;
+    border-right-color: transparent;
+    border-radius: $head--border-radius;
+    box-sizing: border-box;
+  }
+}
+
+.eyes {
+  width: 100%;
+  position: absolute;
+  top: 83px;
+  left: 0px;
+  z-index: 5000;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $color-black;
+  }
+
+  &::before {
+    width: 52px;
+    height: 69px;
+    top: 0px;
+    left: 36px;
+    border-radius: 63% 34% 46% 29%;
+  }
+
+  &::after {
+    width: 55px;
+    height: 72px;
+    top: 17px;
+    right: 24px;
+    border-radius: 63% 63% 51% 62%;
+  }
+}
+
+.mouth {
+  width: 72px;
+  height: 72px;
+  background-color: $color-red;
+  border: 10px $color-black solid;
+  border-radius: 0% 0% 48% 63%;
+  position: absolute;
+  top: 120px;
+  left: 133px;
+  z-index: 5000;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    background-color: $color-blue;
+    border: 10px $color-black solid;
+    border-radius: 0% 0% 60% 0%;
+    border-top: none;
+    border-left: none;
+    position: absolute;
+    z-index: 5100;
+  }
+
+  &::before {
+    width: 20px;
+    height: 30px;
+    left: -13px;
+    top: -23px;
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    width: 42px;
+    height: 26px;
+    right: -19px;
+    top: -21px;
+    transform: rotate(45deg);
+  }
+}
+
+.blush {
+  width: 100%;
+  position: absolute;
+  top: 163px;
+  left: 0px;
+  z-index: 5000;
+
+  span {
+    width: 10px;
+    height: 40px;
+    display: block;
+    border-radius: 10px;
+    position: absolute;
+    background-color: $color-red;
+
+    &:nth-child(1) {
+      height: 27px;
+      top: 0px;
+      left: 22px;
+      transform: rotate(8deg);
+    }
+
+    &:nth-child(2) {
+      height: 27px;
+      top: 0px;
+      left: 52px;
+      transform: rotate(15deg);
+    }
+
+    &:nth-child(3) {
+      height: 35px;
+      top: 0px;
+      left: 73px;
+      transform: rotate(15deg);
+    }
+
+    &:nth-child(4) {
+      height: 31px;
+      top: 12px;
+      left: 253px;
+      transform: rotate(15deg);
+    }
+
+    &:nth-child(5) {
+      height: 31px;
+      top: 17px;
+      left: 275px;
+      transform: rotate(15deg);
+    }
+
+    &:nth-child(6) {
+      height: 24px;
+      top: 18px;
+      left: 304px;
+      transform: rotate(15deg);
+    }
+  }
+}
+
+.ears {
+  position: absolute;
+  z-index: 3000;
+
+  &.ears-left {
+    width: 140px;
+    height: 210px;
+    background-color: $color-blue;
+    border: 10px $color-black solid;
+    border-radius: 208% 106% 0% 0%;
+    top: 170px;
+    left: 250px;
+  }
+
+  &.ears-right {
+    width: 160px;
+    height: 125px;
+    background-color: $color-blue;
+    border: 10px $color-black solid;
+    border-radius: 46% 3% 0%;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    top: 210px;
+    right: 55px;
+    transform: rotate(79deg) skew(19deg, 2deg);
+  }
+}
+
+.body {
+  width: 165px;
+  height: 260px;
+  background-color: $color-blue;
+  border: 10px $color-black solid;
+  border-radius: 10% 14% 75% 0%;
+  border-left-color: transparent;
+  position: absolute;
+  top: 270px;
+  right: 0px;
+  z-index: 2000;
+
+  &::after {
+    content: '';
+    width: 10px;
+    height: 40px;
+    display: block;
+    background-color: $color-blue-dark;
+    border-radius: 5px;
+    position: absolute;
+    right: 44px;
+    transform: rotate(-12deg);
+    box-shadow: 13px 3px 0px $color-blue-dark, 26px 5px 0px $color-blue-dark;
+  }
+}
+
+.foot-front {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  z-index: 1000;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $color-blue;
+    border: 10px $color-black solid;
+  }
+
+  &::before {
+    width: 32px;
+    height: 40px;
+    border-radius: 0% 0% 42% 81%;
+    bottom: 95px;
+    left: 270px;
+  }
+
+  &::after {
+    width: 40px;
+    height: 75px;
+    border-radius: 0% 0% 110% 55%;
+    bottom: 83px;
+    right: 147px;
+  }
+}
+
+.foot-back {
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+
+  &::before, &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: $color-blue;
+    border: 10px $color-black solid;
+  }
+
+  &::before {
+    width: 22px;
+    height: 34px;
+    border-radius: 0% 0% 80% 80%;
+    border-top-color: transparent;
+    bottom: 96px;
+    right: 110px;
+    z-index: 1000;
+  }
+
+  &::after {
+    width: 35px;
+    height: 55px;
+    border-radius: 0% 0% 58% 141%;
+    border-top: none;
+    border-left-color: transparent;
+    bottom: 100px;
+    right: 61px;
+    z-index: 2000;
+    transform: rotate(25deg);
+  }
+}
+
+.chat {
+  width: 230px;
+  height: 188px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+  background-color: $color-white;
+  border: 10px $color-black solid;
+  border-radius: 49% 43% 44% 44%;
+  position: absolute;
+  top: 80px;
+  left: 15px;
+  text-align: center;
+  z-index: 4000;
+
+  span {
+    font-family: 'Carter One', cursive;
+    font-size: 40px;
+    color: $color-black;
+  }
+
+  &::after {
+    content: '';
+    width: 36px;
+    height: 21px;
+    display: block;
+    border: 10px $color-black solid;
+    border-top: none;
+    border-left: none;
+    background-color: $color-white;
+    position: absolute;
+    bottom: -19px;
+    left: 108px;
+    z-index: 4100;
+    transform: rotate(24deg);
+  }
+}

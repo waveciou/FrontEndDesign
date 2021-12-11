@@ -1,7 +1,6 @@
 # 我的前端設計作品集
 
-網頁前端技術的設計創作作品，利用 CSS3 以及 JavaScript 來製作，主要以 CSS 技術為主。<br>
-作品也有同步在我的 [codepen](https://codepen.io/waveciou/) 。
+網頁前端技術的設計創作作品，利用 CSS3 以及 JavaScript 來製作，主要以 CSS 技術為主。此作品集也會同步在我的 [codepen](https://codepen.io/waveciou/) 。
 
 ## 目錄
 
@@ -16,3 +15,4 @@
 - [[CSS] 櫻桃小丸子](https://waveciou.github.io/FrontEndDesign/chibimaruko/)
 - [[CSS] 走路動畫](https://waveciou.github.io/FrontEndDesign/walking/)
 - [[CSS] Hover 文字特效](https://waveciou.github.io/FrontEndDesign/text-effect/)
+- [[CSS] 咖波](https://waveciou.github.io/FrontEndDesign/capoo/)

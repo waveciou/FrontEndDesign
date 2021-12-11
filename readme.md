@@ -16,3 +16,7 @@
 - [[CSS] 走路動畫](https://waveciou.github.io/FrontEndDesign/walking/)
 - [[CSS] Hover 文字特效](https://waveciou.github.io/FrontEndDesign/text-effect/)
 - [[CSS] 咖波](https://waveciou.github.io/FrontEndDesign/capoo/)
+
+## License
+
+[MIT](https://github.com/waveciou/FrontEndDesign/blob/master/LICENSE.md)

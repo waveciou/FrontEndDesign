@@ -1,0 +1,19 @@
+{
+  "name": "frontenddesign",
+  "version": "1.0.0",
+  "description": "my projects of frontend design",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waveciou/FrontEndDesign.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/waveciou/FrontEndDesign/issues"
+  },
+  "homepage": "https://github.com/waveciou/FrontEndDesign#readme"
+}

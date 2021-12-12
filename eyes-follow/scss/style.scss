@@ -42,7 +42,6 @@ body {
     height: 100%;
     position: absolute;
     background-color: #fff;
-    -webkit-animation: eyeclose 6s 5s infinite;
     animation: eyeclose 6s 5s infinite;
 
     .ball {
@@ -68,21 +67,6 @@ body {
         top: 2px;
       }
     }
-  }
-}
-
-@-webkit-keyframes eyeclose {
-
-  0%,
-  3%,
-  6%,
-  100% {
-    height: 100%;
-  }
-
-  1.5%,
-  4.5% {
-    height: 5%;
   }
 }
 

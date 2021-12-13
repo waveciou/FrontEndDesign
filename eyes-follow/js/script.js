@@ -22,7 +22,6 @@
     percentY = (Math.floor((mouseY / overlayHeight) * 100) - 50) * 2;
 
     console.log(percentX, percentY)
-
     setPosition(percentX, percentY);
   });
 })()

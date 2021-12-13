@@ -78,6 +78,7 @@
       m.setAttribute(`data-${TimeBravo}`, bravoStyle.flush);
     });
   }
+
   window.onload = function () {
     setBearStyle();
     skrollr.init();

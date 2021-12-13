@@ -1,6 +1,6 @@
 $color-black: #282828;
-$color-pink: #f6e6de;
-$color-skin: #faead4;
+$color-pink: #F6E6DE;
+$color-skin: #FAEAD4;
 
 body {
   background-color: $color-pink;
@@ -91,6 +91,12 @@ body {
   top: 100px;
   z-index: 2;
   border-radius: 100% 100% 365px 365px;
+
+  &:hover .mouth {
+    background-color: #A55055;
+    border-bottom: none;
+    border-radius: 0px 0px 50px 50px;
+  }
 }
 
 .bangs {
@@ -273,8 +279,3 @@ body {
   bottom: 53px;
 }
 
-.face:hover .mouth {
-  background-color: #a55055;
-  border-bottom: none;
-  border-radius: 0px 0px 50px 50px;
-}

@@ -1,5 +1,5 @@
 body {
-  background-color: #9dc0ca;
+  background-color: #9DC0CA;
   padding: 0px;
   margin: 0px;
 }
@@ -9,10 +9,12 @@ body {
   height: 100vh;
   overflow: hidden;
   pointer-events: none;
-  background-image: url('../img/mountains.svg');
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: repeat no-repeat;
+  background: {
+    image: url('../img/mountains.svg');
+    size: cover;
+    position: center bottom;
+    repeat: repeat no-repeat;
+  };
 
   .snow {
     background-image: url('../img/snow.png');
@@ -38,25 +40,7 @@ body {
   }
 }
 
-@keyframes animateone {
-  0% {
-    background-position: 0px 0px;
-  }
 
-  100% {
-    background-position: 500px 500px;
-  }
-}
-
-@keyframes animatetwo {
-  0% {
-    background-position: 0px 0px;
-  }
-
-  100% {
-    background-position: 300px 900px;
-  }
-}
 
 .snow-speed-wrapper {
   position: fixed;
@@ -81,14 +65,14 @@ body {
 }
 
 $range-handle-size: 20px;
-$range-handle-color: #fff;
+$range-handle-color: #FFFFFF;
 
 #range-slider {
   -webkit-appearance: none;
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background: #d7dcdf;
+  background: #D7DCDF;
   outline: none;
   padding: 0;
   margin: 0;
@@ -100,5 +84,25 @@ $range-handle-color: #fff;
     height: $range-handle-size;
     border-radius: 100%;
     background-color: $range-handle-color;
+  }
+}
+
+@keyframes animateone {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: 500px 500px;
+  }
+}
+
+@keyframes animatetwo {
+  0% {
+    background-position: 0px 0px;
+  }
+
+  100% {
+    background-position: 300px 900px;
   }
 }

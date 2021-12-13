@@ -8,17 +8,15 @@ html {
     overflow: hidden;
     text-align: center;
     position: relative;
-    background-color: #fff;
-    -webkit-transition: all 0.6s ease;
+    background-color: #FFFFFF;
     transition: all 0.6s ease;
 
     &.is-active {
-      background-color: #000;
+      background-color: #000000;
 
       h1 {
         color: #0F9D58;
-        text-shadow: 0vw 15vw 0vw #f4b400, 0vw 30vw 0vw #DB4437, 0vw 45vw 0vw #4285F4;
-        -webkit-transform: translateY(-150%);
+        text-shadow: 0vw 15vw 0vw #F4B400, 0vw 30vw 0vw #DB4437, 0vw 45vw 0vw #4285F4;
         transform: translateY(-150%);
       }
     }
@@ -30,7 +28,6 @@ html {
   position: absolute;
   top: 50%;
   left: 5%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 
   h1 {
@@ -39,9 +36,8 @@ html {
     font-family: 'Amaranth', sans-serif;
     position: relative;
     height: 15vw;
-    color: #000;
-    text-shadow: 0vw 0vw 0vw #f4b400, 0vw 0vw 0vw #DB4437, 0vw 0vw 0vw #4285F4;
-    -webkit-transition: all 1s ease;
+    color: #000000;
+    text-shadow: 0vw 0vw 0vw #F4B400, 0vw 0vw 0vw #DB4437, 0vw 0vw 0vw #4285F4;
     transition: all 1s ease;
 
     &::before {

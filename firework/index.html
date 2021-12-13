@@ -93,7 +93,7 @@
 
           item.life--;
 
-          // 生命結束就呼叫煙火出來
+          // 生命結束就呼叫煙火出來
           if (item.life == 0) {
             firework(item.position.x, item.position.y);
             delete balls.splice(index, 1);

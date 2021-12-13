@@ -13,24 +13,23 @@ article {
   position: absolute;
   top: calc((100% - 480px)/2);
   left: 50%;
-  -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 
   .eyes {
     border-radius: 100%;
-    background-color: #fff;
+    background-color: #FFFFFF;
     position: absolute;
     top: 92px;
 
-    &>span {
+    > span {
       &.eyebrow {
         width: 51px;
         height: 38px;
-        background-color: #000;
+        background-color: #000000;
         border-radius: 100%;
         display: block;
         position: absolute;
-        border-top: 10px #fff solid;
+        border-top: 10px #FFFFFF solid;
         top: -50px;
       }
 
@@ -38,12 +37,11 @@ article {
         width: 15px;
         height: 30px;
         display: block;
-        background-color: #000;
+        background-color: #000000;
         border-radius: 100%;
         position: absolute;
         top: 50%;
         left: calc((100% - 15px)/2);
-        -webkit-transform: translateY(-50%);
         transform: translateY(-50%);
       }
     }
@@ -51,7 +49,7 @@ article {
     &.eyes-left {
 
       // left: 100px;
-      &>span.eyebrow {
+      > span.eyebrow {
         left: 9px;
       }
     }
@@ -59,7 +57,7 @@ article {
     &.eyes-right {
 
       // right: 100px;
-      &>span.eyebrow {
+      > span.eyebrow {
         right: 9px;
       }
     }
@@ -68,19 +66,19 @@ article {
   .face {
     width: 225px;
     height: 175px;
-    background-color: #fff;
+    background-color: #FFFFFF;
     position: absolute;
     border-radius: 100%;
     left: 50%;
-    -webkit-transform: translateX(-50%);
-    transform: translateX(-50%); //top: 180px;
+    transform: translateX(-50%);
+    //top: 180px;
 
     .nose {
-      background-color: #000;
+      background-color: #000000;
       position: absolute;
       left: 50%;
-      -webkit-transform: translateX(-50%);
-      transform: translateX(-50%); // width: 65px;
+      transform: translateX(-50%);
+      // width: 65px;
       // height: 47px;
       // border-radius: 100%;
       // top: 9px;
@@ -91,10 +89,9 @@ article {
       left: 50%;
       top: 86px;
       border-radius: 100%;
-      -webkit-transform-origin: 0;
       transform-origin: 0;
-      -webkit-transform: scale(0.8) translateX(-50%);
-      transform: scale(0.8) translateX(-50%); // width: 200px;
+      transform: scale(0.8) translateX(-50%);
+      // width: 200px;
       // height: 20px;
       // background-color:rgb(0, 0, 0);
     }
@@ -103,7 +100,7 @@ article {
   .flush {
     width: 105px;
     height: 105px;
-    background-color: red;
+    background-color: #FF0000;
     border-radius: 100%;
     position: absolute;
     top: 162px;

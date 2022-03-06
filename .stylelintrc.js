@@ -1,15 +1,15 @@
-{
-  "extends": [
+module.exports = {
+  extends: [
     "stylelint-config-standard",
     "stylelint-config-prettier",
     "stylelint-config-sass-guidelines"
   ],
-  "plugins": [
+  plugins: [
     "stylelint-scss",
     "stylelint-order",
     "stylelint-selector-bem-pattern"
   ],
-  "rules": {
+  rules: {
     "max-nesting-depth": null,
     "no-empty-source": null,
     "no-descending-specificity": null,

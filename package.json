@@ -4,7 +4,8 @@
   "description": "my projects of frontend design",
   "main": "index.js",
   "scripts": {
-    "test": ""
+    "test": "",
+    "style": "stylelint \"src/**/*.(vue|scss|css)\" --fix"
   },
   "repository": {
     "type": "git",
@@ -17,13 +18,13 @@
   },
   "homepage": "https://github.com/waveciou/FrontEndDesign#readme",
   "devDependencies": {
-    "pre-commit": "^1.2.2",
-    "stylelint": "^14.1.0",
+    "stylelint": "^14.5.3",
+    "stylelint-config-html": "^1.0.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
-    "stylelint-scss": "^4.0.1",
     "stylelint-selector-bem-pattern": "^2.1.1"
   }
 }

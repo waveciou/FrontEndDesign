@@ -2,6 +2,20 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.stylelint": true
   },
+  "stylelint.snippet": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss"
+  ],
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss"
+  ],
   "liveSassCompile.settings.autoprefix": [
     "> 1%",
     "last 2 versions"

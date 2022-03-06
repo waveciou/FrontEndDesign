@@ -2,8 +2,8 @@ article {
   width: 600px;
   height: 600px;
   position: fixed;
-  left: calc((100% - 600px)/2);
-  top: calc((100% - 600px)/2);
+  top: calc((100% - 600px) / 2);
+  left: calc((100% - 600px) / 2);
   overflow: hidden;
 }
 
@@ -11,37 +11,37 @@ article {
   width: 480px;
   height: 480px;
   position: absolute;
-  top: calc((100% - 480px)/2);
+  top: calc((100% - 480px) / 2);
   left: 50%;
   transform: translateX(-50%);
 
   .eyes {
-    border-radius: 100%;
-    background-color: #FFFFFF;
     position: absolute;
     top: 92px;
+    background-color: #fff;
+    border-radius: 100%;
 
     > span {
       &.eyebrow {
         width: 51px;
         height: 38px;
-        background-color: #000000;
-        border-radius: 100%;
         display: block;
         position: absolute;
-        border-top: 10px #FFFFFF solid;
         top: -50px;
+        background-color: #000;
+        border-radius: 100%;
+        border-top: 10px #fff solid;
       }
 
       &.eyeball {
         width: 15px;
         height: 30px;
         display: block;
-        background-color: #000000;
-        border-radius: 100%;
         position: absolute;
         top: 50%;
-        left: calc((100% - 15px)/2);
+        left: calc((100% - 15px) / 2);
+        background-color: #000;
+        border-radius: 100%;
         transform: translateY(-50%);
       }
     }
@@ -66,17 +66,17 @@ article {
   .face {
     width: 225px;
     height: 175px;
-    background-color: #FFFFFF;
     position: absolute;
-    border-radius: 100%;
     left: 50%;
+    background-color: #fff;
+    border-radius: 100%;
     transform: translateX(-50%);
     //top: 180px;
 
     .nose {
-      background-color: #000000;
       position: absolute;
       left: 50%;
+      background-color: #000;
       transform: translateX(-50%);
       // width: 65px;
       // height: 47px;
@@ -86,11 +86,11 @@ article {
 
     .mouth {
       position: absolute;
-      left: 50%;
       top: 86px;
+      left: 50%;
       border-radius: 100%;
-      transform-origin: 0;
       transform: scale(0.8) translateX(-50%);
+      transform-origin: 0;
       // width: 200px;
       // height: 20px;
       // background-color:rgb(0, 0, 0);
@@ -100,10 +100,10 @@ article {
   .flush {
     width: 105px;
     height: 105px;
-    background-color: #FF0000;
-    border-radius: 100%;
     position: absolute;
     top: 162px;
+    background-color: #f00;
+    border-radius: 100%;
 
     &.flush-left {
       left: -20px;

@@ -1,21 +1,20 @@
 $planet-size: 10%;
-$sun-color-yellow: #FFF000;
-$sun-color-orange: #F80;
-$moon-color: #3E3D3D;
-$moon-color-dark: #1F1E1E;
-$moon-shadow: rgba(255, 255, 255, 0.5);
+$sun-color-yellow: #fff000;
+$sun-color-orange: #f80;
+$moon-color: #3e3d3d;
+$moon-color-dark: #1f1e1e;
+$moon-shadow: rgba(255, 255, 255, 50%);
 
 body {
+  overflow: hidden;
+  background-color: #000;
 
   &,
   html {
-    position: relative;
     width: 100%;
     height: 100%;
+    position: relative;
   }
-
-  background-color: #000000;
-  overflow: hidden;
 
   > .space {
     width: 100%;
@@ -24,26 +23,26 @@ body {
 
     #sun {
       width: $planet-size;
-      height: 0px;
+      height: 0;
       padding-bottom: $planet-size;
-      border-radius: 100%;
       position: absolute;
       top: 0%;
       left: (100% - $planet-size)/2;
       background-color: $sun-color-yellow;
-      box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
+      border-radius: 100%;
+      box-shadow: 0 0 10px $sun-color-yellow, 0 0 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
       animation: corona 20s ease infinite;
     }
 
     #moon {
       width: $planet-size;
-      height: 0px;
+      height: 0;
       padding-bottom: $planet-size;
-      border-radius: 100%;
       position: absolute;
       top: 0%;
       left: 0% - $planet-size;
       background-color: $moon-color;
+      border-radius: 100%;
       box-shadow: inset -10px 3px 10px $moon-shadow;
       animation: move 10s linear infinite;
     }
@@ -52,23 +51,23 @@ body {
 
 @keyframes corona {
   0% {
-    box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
+    box-shadow: 0 0 10px $sun-color-yellow, 0 0 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
   }
 
   50% {
-    box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 30px $sun-color-orange, -10px -10px 90px $sun-color-orange;
+    box-shadow: 0 0 10px $sun-color-yellow, 0 0 30px $sun-color-orange, -10px -10px 90px $sun-color-orange;
   }
 
   100% {
-    box-shadow: 0px 0px 10px $sun-color-yellow, 0px 0px 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
+    box-shadow: 0 0 10px $sun-color-yellow, 0 0 90px $sun-color-orange, -10px -10px 150px $sun-color-orange;
   }
 }
 
 @keyframes move {
   0% {
     left: 0% - $planet-size;
-    box-shadow: inset -10px 1px 5px $moon-shadow;
     background-color: $moon-color;
+    box-shadow: inset -10px 1px 5px $moon-shadow;
   }
 
   40% {
@@ -76,8 +75,8 @@ body {
   }
 
   50% {
-    box-shadow: inset 0px 1px 5px rgba(255, 255, 255, 1);
-    background-color: #000000;
+    background-color: #000;
+    box-shadow: inset 0 1px 5px rgba(255, 255, 255, 100%);
   }
 
   60% {
@@ -86,7 +85,7 @@ body {
 
   100% {
     left: 100% + $planet-size;
-    box-shadow: inset 10px 1px 5px $moon-shadow;
     background-color: $moon-color;
+    box-shadow: inset 10px 1px 5px $moon-shadow;
   }
 }

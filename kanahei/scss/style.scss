@@ -1,5 +1,5 @@
 body {
-  background-color: #8ABCDA;
+  background-color: #8abcda;
 
   * {
     box-sizing: border-box;
@@ -9,21 +9,21 @@ body {
 .usagi {
   width: 640px;
   height: 450px;
-  margin: 30px auto 0px;
-  overflow: hidden;
+  margin: 30px auto 0;
   position: absolute;
   bottom: 0;
-  left: calc((100vw - 1090px)/2);
+  left: calc((100vw - 1090px) / 2);
+  overflow: hidden;
 
   .head {
     width: 640px;
     height: 565px;
-    background-color: #F8B4C1;
-    border-radius: 477px / 543px;
-    border: 20px #522402 solid;
     position: absolute;
     top: 80%;
-    left: calc((100% - 640px)/2);
+    left: calc((100% - 640px) / 2);
+    background-color: #f8b4c1;
+    border: 20px #522402 solid;
+    border-radius: 477px / 543px;
     transition: all 0.6s;
 
     .wrap {
@@ -33,45 +33,45 @@ body {
 
       &::before,
       &::after {
-        content: "";
+        content: '';
         width: 80px;
         height: 160px;
-        background-color: #F8B4C1;
-        border: 20px #522402 solid;
         display: inline-block;
-        border-bottom: none;
         position: absolute;
+        background-color: #f8b4c1;
+        border: 20px #522402 solid;
+        border-bottom: none;
         transform-origin: bottom;
       }
 
       &::before {
         top: -177px;
         left: 173px;
-        border-radius: 61% 38% 0px 0px;
+        border-radius: 61% 38% 0 0;
         transform: rotate(-4deg);
       }
 
       &::after {
         top: -174px;
         right: 147px;
-        border-radius: 82% 77% 0px 0px;
+        border-radius: 82% 77% 0 0;
         transform: rotate(5.2deg);
       }
     }
   }
 
   .face {
-    background-color: #FFFFFF;
     width: 170px;
     height: 250px;
     position: absolute;
-    border-radius: 89%;
-    left: calc((100% - 170px)/2);
     top: 75px;
+    left: calc((100% - 170px) / 2);
+    background-color: #fff;
+    border-radius: 89%;
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       width: 45px;
       height: 25px;
       display: block;
@@ -96,22 +96,22 @@ body {
   .mouth {
     width: 65px;
     height: 70px;
-    background-color: #F8B4C1;
-    border: 19px #522402 solid;
-    border-top: none;
-    border-radius: 0% 0% 110% 110%;
     position: absolute;
-    left: calc((100% - 65px)/2);
     top: 160px;
+    left: calc((100% - 65px) / 2);
+    background-color: #f8b4c1;
+    border: 19px #522402 solid;
+    border-radius: 0% 0% 110% 110%;
+    border-top: none;
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       width: 27px;
       height: 40px;
-      border: 20px #522402 solid;
       position: absolute;
       top: -40px;
+      border: 20px #522402 solid;
     }
 
     &::before {
@@ -134,21 +134,21 @@ body {
   .nose {
     width: 40px;
     height: 25px;
-    background-color: #522402;
     position: absolute;
-    left: calc((100% - 40px)/2);
     top: 82px;
+    left: calc((100% - 40px) / 2);
+    background-color: #522402;
     border-radius: 48%;
 
     &::after {
-      content: "";
+      content: '';
       width: 20px;
       height: 65px;
-      background-color: #522402;
       display: block;
       position: absolute;
       top: 10px;
-      left: calc((100% - 20px)/2);
+      left: calc((100% - 20px) / 2);
+      background-color: #522402;
     }
   }
 
@@ -159,13 +159,13 @@ body {
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       width: 130px;
       height: 90px;
-      background-color: #F6A2AF;
       display: block;
       position: absolute;
       top: 100px;
+      background-color: #f6a2af;
       border-radius: 100%/ 90%;
     }
 
@@ -188,35 +188,35 @@ body {
 .piske {
   width: 450px;
   height: 450px;
-  overflow: hidden;
   position: absolute;
   bottom: 0;
-  right: calc((100vw - 1090px)/2);
+  right: calc((100vw - 1090px) / 2);
+  overflow: hidden;
 
   .head {
     width: 100%;
     height: 575px;
-    background-color: #FFFFFF;
-    border-radius: 580px / 550px;
-    border: 15px #40190F solid;
     position: absolute;
     top: 80%;
     left: 0;
+    background-color: #fff;
+    border: 15px #40190f solid;
+    border-radius: 580px / 550px;
     transition: all 0.6s;
   }
 
   .mouth {
     position: absolute;
-    left: calc((100% - 80px)/2);
     top: 100px;
+    left: calc((100% - 80px) / 2);
 
     &::before,
     &::after {
       content: '';
-      display: block;
-      border: 15px #40190F solid;
-      background-color: #FEDC3A;
       margin: auto;
+      display: block;
+      background-color: #fedc3a;
+      border: 15px #40190f solid;
     }
 
     &::before {
@@ -228,8 +228,8 @@ body {
     &::after {
       width: 40px;
       height: 40px;
-      border-radius: 100%;
       margin-top: -15px;
+      border-radius: 100%;
     }
   }
 
@@ -242,12 +242,12 @@ body {
     &::before,
     &::after {
       content: '';
-      display: block;
       width: 30px;
       height: 30px;
-      border-radius: 100%;
-      background-color: #40190F;
+      display: block;
       position: absolute;
+      background-color: #40190f;
+      border-radius: 100%;
     }
 
     &::before {
@@ -261,18 +261,18 @@ body {
 
   .flush {
     width: 100%;
-    position: absolute;
     height: 60px;
+    position: absolute;
     top: 140px;
 
     &::before,
     &::after {
-      content: "";
+      content: '';
       width: 60px;
       height: 60px;
-      background-color: #F6A2AF;
       display: block;
       position: absolute;
+      background-color: #f6a2af;
       border-radius: 100% / 90%;
     }
 

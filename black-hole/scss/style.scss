@@ -1,9 +1,9 @@
-$color-orange-1: #FF5500;
-$color-orange-2: #FF8800;
-$color-orange-3: #FF6600;
-$color-yellow: #FFEB3B;
-$color-black: #000000;
-$color-white: #FFFFFF;
+$color-orange-1: #f50;
+$color-orange-2: #f80;
+$color-orange-3: #f60;
+$color-yellow: #ffeb3b;
+$color-black: #000;
+$color-white: #fff;
 
 $time: 15s;
 
@@ -15,11 +15,11 @@ html {
 body {
   width: 100%;
   height: 100%;
-  background-color: $color-black;
-  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: $color-black;
   filter: blur(7px);
   animation: bang $time linear infinite;
 }
@@ -30,23 +30,22 @@ body {
   min-width: 250px;
   min-height: 250px;
   position: relative;
+  animation: rotate 3s linear infinite;
 
   &::before {
-    content: "";
+    content: '';
     width: 100%;
     height: 100%;
     display: block;
     position: absolute;
-    top: 0px;
-    left: 0px;
-    border-radius: 100%;
+    top: 0;
+    left: 0;
     background-color: $color-black;
-    box-shadow: 0vw 0vw 7vw $color-orange-1, 0vw 0vw 5vw $color-yellow,
+    border-radius: 100%;
+    box-shadow: 0 0 7vw $color-orange-1, 0 0 5vw $color-yellow,
       -4vw -1vw 30vw $color-orange-3;
     animation: corona $time linear infinite;
   }
-
-  animation: rotate 3s linear infinite;
 }
 
 @keyframes rotate {
@@ -82,44 +81,44 @@ body {
   }
 
   100% {
-    opacity: 1;
     background-color: $color-black;
+    opacity: 1;
   }
 }
 
 @keyframes corona {
   0% {
-    box-shadow: 0vw 0vw 7vw $color-orange-1, 0vw 0vw 5vw $color-yellow,
+    box-shadow: 0 0 7vw $color-orange-1, 0 0 5vw $color-yellow,
       -4vw -1vw 30vw $color-orange-3;
   }
 
   50% {
-    box-shadow: 0vw 0vw 10vw $color-orange-1, -1vw 0vw 5vw $color-yellow,
+    box-shadow: 0 0 10vw $color-orange-1, -1vw 0 5vw $color-yellow,
       -6vw -1vw 15vw $color-orange-3;
   }
 
   90% {
-    box-shadow: 0vw 0vw 0.5vw $color-white, 0vw 0vw 0vw $color-orange-2,
-      0vw 0vw 0vw $color-orange-3;
+    box-shadow: 0 0 0.5vw $color-white, 0 0 0 $color-orange-2,
+      0 0 0 $color-orange-3;
   }
 
   91% {
-    box-shadow: 0vw 0vw 0vw $color-white, 0vw 0vw 0vw $color-orange-2,
-      0vw 0vw 0vw $color-orange-3;
+    box-shadow: 0 0 0 $color-white, 0 0 0 $color-orange-2,
+      0 0 0 $color-orange-3;
   }
 
   95% {
-    box-shadow: 0vw 0vw 90vw $color-white, 0vw 0vw 100vw $color-orange-2,
-      0vw 0vw 100vw $color-orange-3;
+    box-shadow: 0 0 90vw $color-white, 0 0 100vw $color-orange-2,
+      0 0 100vw $color-orange-3;
   }
 
   97% {
-    box-shadow: 0vw 0vw 0vw $color-white, 0vw 0vw 0vw $color-yellow,
-      0vw 0vw 0vw $color-orange-3;
+    box-shadow: 0 0 0 $color-white, 0 0 0 $color-yellow,
+      0 0 0 $color-orange-3;
   }
 
   100% {
-    box-shadow: 0vw 0vw 7vw $color-orange-1, 0vw 0vw 5vw $color-yellow,
+    box-shadow: 0 0 7vw $color-orange-1, 0 0 5vw $color-yellow,
       -4vw -1vw 30vw $color-orange-3;
   }
 }
